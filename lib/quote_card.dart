@@ -5,7 +5,8 @@ class QuoteCard extends StatelessWidget {
 
   //using variables in stateless widget
   final Quote quote;
-  QuoteCard({this.quote});
+  final Function delete;
+  QuoteCard({this.quote, this.delete});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,17 @@ class QuoteCard extends StatelessWidget {
                 fontSize: 14,
                 color: Colors.grey[800],
               ),
-            )
+            ),
+            SizedBox(height: 8),
+            TextButton(
+              onPressed: delete,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.delete),
+                  Text('DELETE')
+                ],
+              )),
           ],
         ),
       ),
